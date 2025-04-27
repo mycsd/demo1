@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Today's Events</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Today's Events</h1>
+  <div id="events"></div>
+
+  <script>
+    const sheetID = '1IZEED9wozrcDKd2y5zMmFW2npT5NpJYCyz5d52sYXRM'; // <-- Change this
+    const sheetName = 'Future'; // or your actual sheet name
+    const url = `https://docs.google.com/spreadsheets/d/${1IZEED9wozrcDKd2y5zMmFW2npT5NpJYCyz5d52sYXRM}/gviz/tq?tqx=out:json&sheet=${1IZEED9wozrcDKd2y5zMmFW2npT5NpJYCyz5d52sYXRM}`;
+
+    fetch(url)
+      .then(res => res.text())
+      .then(data => {
+        const json = JSON.parse(data.substr(47).slice(0, -2));
+        const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+        let html = '<table><tr><th>Date</th><th>Event</th><th>Time</th><th>Venue</th><th>Registration Link</th></tr>';
+        json.table.rows.forEach(row => {
+          const date = row.c[0]?.v;
+          if (date && date.startsWith(today)) {
+            html += `<tr>
+              <td>${date}</td>
+              <td>${row.c[1]?.v || ''}</td>
+              <td>${row.c[2]?.v || ''}</td>
+              <td>${row.c[3]?.v || ''}</td>
+              <td><a href="${row.c[4]?.v || '#'}" target="_blank">Register</a></td>
+            </tr>`;
+          }
+        });
+        html += '</table>';
+        document.getElementById('events').innerHTML = html;
+      })
+      .catch(err => {
+        document.getElementById('events').innerHTML = 'Failed to load events.';
+        console.error('Error:', err);
+      });
+  </script>
+</body>
+</html>
 
