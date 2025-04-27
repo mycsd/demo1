@@ -140,12 +140,20 @@ async function loadEvents() {
       const card = document.createElement('div');
       card.className = 'event-notification';
 
+      // Check if registration link is not "Walk In" or empty
+      let registerHTML = '';
+      if (event["registration link"] && event["registration link"].toLowerCase() !== 'walk in') {
+        registerHTML = `<a class="register-link" href="${event["registration link"]}" target="_blank">Register</a>`;
+      } else if (event["registration link"].toLowerCase() === 'walk in') {
+        registerHTML = '<span class="register-link">Walk In</span>';
+      }
+
       card.innerHTML = `
         <div class="event-title">${event["event name"]}</div>
         <div class="event-info"><strong>📅 Date:</strong> ${event.date}</div>
         <div class="event-info"><strong>🕒 Time:</strong> ${event.time}</div>
         <div class="event-info"><strong>📍 Venue:</strong> ${event.venue}</div>
-        <a class="register-link" href="${event["registration link"]}" target="_blank">Register</a>
+        ${registerHTML}
       `;
 
       container.appendChild(card);
