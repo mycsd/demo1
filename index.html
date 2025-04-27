@@ -4,16 +4,91 @@
   <meta charset="UTF-8">
   <title>Today's Events</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    .event-card { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
-    .event-title { font-size: 1.5em; margin-bottom: 10px; }
-    .event-info { margin: 5px 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Dynamic Island style */
+    .dynamic-island {
+      display: inline-block;
+      background-color: black;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    /* Breathing green dot */
+    .green-dot {
+      width: 10px;
+      height: 10px;
+      background-color: limegreen;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      right: -20px;
+      transform: translateY(-50%);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: translateY(-50%) scale(1); opacity: 1; }
+      50% { transform: translateY(-50%) scale(1.5); opacity: 0.5; }
+      100% { transform: translateY(-50%) scale(1); opacity: 1; }
+    }
+
+    /* Apple-style Notification */
+    .event-notification {
+      background-color: white;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 400px;
+      box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .event-title {
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .event-info {
+      font-size: 0.95em;
+      margin: 4px 0;
+    }
+
+    .register-link {
+      margin-top: 10px;
+      display: inline-block;
+      background: #007aff;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+
+    .register-link:hover {
+      background: #0051a8;
+    }
   </style>
 </head>
 <body>
 
-<h1>Today's Events</h1>
+<!-- Dynamic Island -->
+<div class="dynamic-island">
+  Today's Events
+  <div class="green-dot"></div>
+</div>
 
+<!-- Events -->
 <div id="events-container">
   Loading events...
 </div>
@@ -34,14 +109,14 @@ async function loadEvents() {
 
     events.forEach(event => {
       const card = document.createElement('div');
-      card.className = 'event-card';
+      card.className = 'event-notification';
 
       card.innerHTML = `
         <div class="event-title">${event["event name"]}</div>
-        <div class="event-info"><strong>Date:</strong> ${event.date}</div>
-        <div class="event-info"><strong>Time:</strong> ${event.time}</div>
-        <div class="event-info"><strong>Venue:</strong> ${event.venue}</div>
-        <div class="event-info"><strong><a href="${event["registration link"]}" target="_blank">Register Here</a></strong></div>
+        <div class="event-info"><strong>📅 Date:</strong> ${event.date}</div>
+        <div class="event-info"><strong>🕒 Time:</strong> ${event.time}</div>
+        <div class="event-info"><strong>📍 Venue:</strong> ${event.venue}</div>
+        <a class="register-link" href="${event["registration link"]}" target="_blank">Register</a>
       `;
 
       container.appendChild(card);
