@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "date": "2025-04-28",
+    "event name": "TEST1",
+    "time": "13:00",
+    "venue": "Webex",
+    "registration link": "google.com"
+  },
+  {
+    "date": "2025-04-28",
+    "event name": "test2",
+    "time": "14:00",
+    "venue": "Facebook Live",
+    "registration link": "google.com"
+  }
+]
