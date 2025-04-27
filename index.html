@@ -140,12 +140,23 @@ async function loadEvents() {
       const card = document.createElement('div');
       card.className = 'event-notification';
 
-      // Check if registration link is not "Walk In" or empty
+      // Function to check if the string is a valid URL
+      function isValidURL(str) {
+        const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+          '((([A-Z0-9](?:[A-Z0-9-]*[A-Z0-9])?)(\\.[A-Z0-9](?:[A-Z0-9-]*[A-Z0-9])?)*)' + // domain name
+          '(\\:[0-9]+)?' + // port
+          '(\\/[-A-Z0-9+&@#/%=~_|$?!:,.]*)?' + // path
+          '(\\?[;&A-Z0-9+&@#/%=~_|$]*)?' + // query string
+          '(\\#[-A-Z0-9]*)?$', 'i');
+        return pattern.test(str);
+      }
+
+      // Check if registration link is valid URL
       let registerHTML = '';
-      if (event["registration link"] && event["registration link"].toLowerCase() !== 'walk in') {
+      if (event["registration link"] && isValidURL(event["registration link"])) {
         registerHTML = `<a class="register-link" href="${event["registration link"]}" target="_blank">Register</a>`;
-      } else if (event["registration link"].toLowerCase() === 'walk in') {
-        registerHTML = '<span class="register-link">Walk In</span>';
+      } else {
+        registerHTML = `<span class="register-link">${event["registration link"]}</span>`;
       }
 
       card.innerHTML = `
