@@ -10,31 +10,35 @@
       background-color: #f5f5f5;
       padding: 20px;
       text-align: center;
+      margin: 0;
+      overflow-x: hidden;
     }
+
     /* Dynamic Island style */
     .dynamic-island {
-  display: inline-block;
-  background-color: black;
-  color: white;
-  padding: 8px 20px 8px 30px; /* <-- more left padding */
-  border-radius: 30px;
-  font-size: 1.2em;
-  margin-bottom: 30px;
-  position: relative;
-}
-
+      display: inline-block;
+      background-color: black;
+      color: white;
+      padding: 8px 20px 8px 30px; /* <-- more left padding */
+      border-radius: 30px;
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      position: relative;
+      opacity: 0;
+      animation: fadeIn 2s ease-out forwards; /* Fade-in animation */
+    }
 
     /* Breathing green dot */
     .green-dot {
-    width: 10px;
-    height: 10px;
-    background-color: limegreen;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 12px; /* <-- left side inside */
-    transform: translateY(-50%);
-    animation: pulse 1.5s infinite;
+      width: 10px;
+      height: 10px;
+      background-color: limegreen;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 12px; /* <-- left side inside */
+      transform: translateY(-50%);
+      animation: pulse 1.5s infinite;
     }
 
     @keyframes pulse {
@@ -52,6 +56,19 @@
       max-width: 400px;
       box-shadow: 0px 8px 15px rgba(0,0,0,0.1);
       text-align: left;
+      opacity: 0;
+      animation: slideUp 1s ease-out forwards; /* Slide-up animation */
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .event-title {
@@ -79,6 +96,17 @@
     .register-link:hover {
       background: #0051a8;
     }
+
+    /* Fade-in animation for page content */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -90,7 +118,7 @@
 </div>
 
 <!-- Events -->
-<div id="events-container">
+<div id="events-container" style="opacity: 0; animation: fadeIn 1s ease-out forwards;">
   Loading events...
 </div>
 
