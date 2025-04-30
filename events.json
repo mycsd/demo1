@@ -1,13 +1,6 @@
 [
   {
     "date": "2025-04-30",
-    "event name": "PREPARING FOR THE WORKFORCE",
-    "time": "20:00",
-    "venue": "Webex",
-    "registration link": "https://forms.gle/7oX9PzrymFYvCGHr6"
-  },
-  {
-    "date": "2025-04-30",
     "event name": "Trend in Robotics",
     "time": "15:00",
     "venue": "Webex",
@@ -19,6 +12,13 @@
     "time": "15:00",
     "venue": "Webex",
     "registration link": "https://forms.gle/sqFFHQkZ9zX9osGDA"
+  },
+  {
+    "date": "2025-04-30",
+    "event name": "PREPARING FOR THE WORKFORCE",
+    "time": "20:00",
+    "venue": "Webex",
+    "registration link": "https://forms.gle/7oX9PzrymFYvCGHr6"
   },
   {
     "date": "2025-04-30",
