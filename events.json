@@ -1,6 +1,14 @@
 [
   {
     "date": "2025-05-09",
+    "event name": "Biz Workshop 2: Pitching and Finalist Announcement",
+    "time": "19:30",
+    "end time": "22:30",
+    "venue": "Webex",
+    "registration link": "https://forms.gle/LgkbRTvHc17FhFer7"
+  },
+  {
+    "date": "2025-05-09",
     "event name": "FINANCIAL QUOTIENT",
     "time": "20:00",
     "end time": "22:00",
@@ -14,5 +22,13 @@
     "end time": "22:30",
     "venue": "DK 10",
     "registration link": "https://forms.gle/vF5hQWFtPnVs54og9"
+  },
+  {
+    "date": "2025-05-09",
+    "event name": "Study Smarter, Not Harder with Andi Arnaisah",
+    "time": "20:30",
+    "end time": "22:30",
+    "venue": "Webex",
+    "registration link": "https://forms.gle/iNPFTLoVTs1YuKVR8"
   }
 ]
