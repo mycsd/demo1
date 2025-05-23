@@ -1,10 +1,26 @@
 [
   {
-    "date": "2025-05-23",
-    "event name": "Culture Quest",
+    "date": "2025-05-24",
+    "event name": "I.D.E.A. FAIR MAIN EVENT 2025",
+    "time": "09:00",
+    "end time": "17:00",
+    "venue": "Dewan Besar UITM Permatang Pauh",
+    "registration link": "https://forms.gle/FnkhF6aU6bnz4f448"
+  },
+  {
+    "date": "2025-05-24",
+    "event name": "Moneywise: Bijak Urus Kewangan Pelajar",
+    "time": "09:00",
+    "end time": "11:00",
+    "venue": "Cisco Webex",
+    "registration link": "https://forms.gle/nMugHqNkk4aaC4448"
+  },
+  {
+    "date": "2025-05-24",
+    "event name": "EcoExplorer Quiz: The Ultimate Nature & Hiking Knowledge Challenge",
     "time": "20:00",
     "end time": "21:00",
-    "venue": "Google Form",
-    "registration link": "https://forms.gle/QV41JkhLMUwEmvBQ6"
+    "venue": "Cisco Webex",
+    "registration link": "https://forms.gle/WSZJSFs9n1JeQDFKA"
   }
 ]
