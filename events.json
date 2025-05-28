@@ -29,7 +29,7 @@
     "time": "15:00",
     "end time": "17:00",
     "venue": "DK7",
-    "registration link": "https://bit.ly/NVIDIA_Sharing_Session_Registration_Form"
+    "registration link": "Walk In"
   },
   {
     "date": "2025-05-28",
@@ -62,6 +62,14 @@
     "end time": "22:00",
     "venue": "Cisco Webex",
     "registration link": "https://forms.gle/e5k6RV3zVgyaAq9X9"
+  },
+  {
+    "date": "2025-05-28",
+    "event name": "Mastering Drone Ground Control",
+    "time": "20:00",
+    "end time": "22:00",
+    "venue": "Cisco Webex",
+    "registration link": "https://forms.gle/LX7aXAkatrMggnV4A"
   },
   {
     "date": "2025-05-28",
