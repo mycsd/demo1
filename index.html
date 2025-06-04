@@ -283,14 +283,21 @@
           }
 
           const timerHTML = `
-            <div class="timer-container">
-              <svg width="80" height="80">
-                <circle class="circle-bg" cx="40" cy="40" r="30"/>
-                <circle class="circle" cx="40" cy="40" r="30"/>
-              </svg>
-              <div class="timer-text">--</div>
-            </div>
-          `;
+  <div class="timer-container">
+    <svg width="80" height="80">
+      <defs>
+        <linearGradient id="live-gradient" x1="1" y1="0" x2="0" y2="0">
+          <stop offset="0%" stop-color="limegreen" stop-opacity="1" />
+          <stop offset="100%" stop-color="limegreen" stop-opacity="0.2" />
+        </linearGradient>
+      </defs>
+      <circle class="circle-bg" cx="40" cy="40" r="30"/>
+      <circle class="circle" cx="40" cy="40" r="30"/>
+    </svg>
+    <div class="timer-text">--</div>
+  </div>
+`;
+
 
           let registerHTML = '';
           if (event["registration link"] && event["registration link"].toLowerCase() !== 'walk in') {
@@ -352,14 +359,13 @@
       timerText.textContent = `${h}h ${m}m`;
 
     } else if (now >= startTime && now < endTime) {
-      // Event live — Samsung ring style
       circle.classList.add("live-rotate");
-      const arcLength = FULL_CIRCLE * 0.3; // 30% of circle
-      circle.style.strokeDasharray = `${arcLength} ${FULL_CIRCLE}`;
-      circle.style.strokeDashoffset = 0;
-      circle.style.stroke = "limegreen";
+const arcLength = FULL_CIRCLE * 0.5; // 50% of circle
+circle.style.strokeDasharray = `${arcLength} ${FULL_CIRCLE}`;
+circle.style.strokeDashoffset = 0;
+circle.style.stroke = "url(#live-gradient)";
+timerText.textContent = "Live";
 
-      timerText.textContent = "Live";
 
     } else {
       // Event ended
