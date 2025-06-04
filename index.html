@@ -361,7 +361,7 @@
 
     } else if (now >= startTime && now < endTime) {
       circle.classList.add("live-rotate");
-const arcLength = FULL_CIRCLE * 0.5; // 50% of circle
+const arcLength = FULL_CIRCLE * 0.8; // capacity of circle
 circle.style.strokeDasharray = `${arcLength} ${FULL_CIRCLE}`;
 circle.style.strokeDashoffset = 0;
 circle.style.stroke = "url(#live-gradient)";
