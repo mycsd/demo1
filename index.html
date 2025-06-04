@@ -330,7 +330,9 @@
           timerText.textContent = "Ended";
         }
       }
-
+body.loaded {
+  opacity: 1;
+}
       updateTimer();
       setInterval(updateTimer, 1000);
     }
@@ -339,6 +341,7 @@
       document.body.classList.add('loaded');
       loadEvents();
     }
+    
   </script>
 </body>
 </html>
