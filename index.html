@@ -20,6 +20,10 @@
       overflow-x: hidden;
     }
 
+    body.loaded {
+      opacity: 1;
+    }
+
     @keyframes gradientBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -230,6 +234,28 @@
         const response = await fetch('https://raw.githubusercontent.com/mycsd/demo1/main/events.json');
         const events = await response.json();
 
+        // Optional: Uncomment to test locally without fetch
+        /*
+        const events = [
+          {
+            "event name": "Morning Yoga",
+            "date": "2025-06-04",
+            "time": "08:00",
+            "end time": "09:00",
+            "venue": "Park Lawn",
+            "registration link": "walk in"
+          },
+          {
+            "event name": "Tech Talk",
+            "date": "2025-06-04",
+            "time": "10:30",
+            "end time": "12:00",
+            "venue": "Main Hall",
+            "registration link": "https://example.com/register"
+          }
+        ];
+        */
+
         const container = document.getElementById('events-container');
         container.innerHTML = '';
 
@@ -330,9 +356,7 @@
           timerText.textContent = "Ended";
         }
       }
-body.loaded {
-  opacity: 1;
-}
+
       updateTimer();
       setInterval(updateTimer, 1000);
     }
@@ -341,7 +365,6 @@ body.loaded {
       document.body.classList.add('loaded');
       loadEvents();
     }
-    
   </script>
 </body>
 </html>
